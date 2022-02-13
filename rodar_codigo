@@ -1,0 +1,3 @@
+- Adicionar a flag -I/usr/include/tirpc nas flags de compilação
+- Adicionar a flag -ltirpc nas flags de linkagem
+- Para apagar ports do portmap: rpcbind -d prognum versionum

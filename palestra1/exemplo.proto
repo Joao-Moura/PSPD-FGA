@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+// Definição do serviço da calculadora
+service Calculadora {
+    // Envia os operandos e retorna o resultado
+    rpc CalculaOperandos (OperandosRequest) returns (ResultadoResponse) {}
+}
+
+// Operandos para o calculo
+message OperandosRequest {
+    int32 operandoUm = 1;
+    int32 operandoDois = 2;
+}
+
+// Resultado do cálculo
+message ResultadoResponse {
+    int32 soma = 1;
+    int32 subtracao = 2;
+    float multiplicacao = 3;
+    float divicao = 4;
+}

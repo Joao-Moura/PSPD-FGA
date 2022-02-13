@@ -1,0 +1,6 @@
+#!/bin/sh
+
+make
+rpcbind -w &
+rpcinfo
+./lab1_b_server

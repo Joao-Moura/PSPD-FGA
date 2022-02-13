@@ -1,0 +1,6 @@
+version: "3"
+
+services:
+  rpcserver:
+    build: .
+    command: ./run_server
