@@ -8,7 +8,7 @@
 #include <netdb.h>
 #include <unistd.h>
 
-#define QLEN 5
+#define QLEN 12
 
 typedef struct {
     int vetor_len;
