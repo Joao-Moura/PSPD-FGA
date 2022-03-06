@@ -78,7 +78,7 @@ class VecRpcClient(object):
 # e recebimento da resposta do worker
 def thread_func(inicio, final, vec, resps):
     vec_rpc = VecRpcClient()
-    vec_rpc.call(final-inicio, vec[inicio:final], resps)
+    vec_rpc.call(final-inicio, vec, resps)
 
 
 if __name__ == "__main__":
@@ -121,11 +121,14 @@ if __name__ == "__main__":
         if worker + 1 >= qtd_workers:
             final = inicio + tam_por_worker + (n % qtd_workers)
 
+        # Criação das threads e alocação dos espaços para as respostas
         resps = MinEMaxValor()
-        thread = threading.Thread(target=thread_func, args=(inicio, final, vec, resps))
+        thread = threading.Thread(target=thread_func, args=(inicio, final, vec[inicio:final], resps))
         threads.append((thread, resps))
         thread.start()
 
+    # Cálculo do menor e maior valor
+    # dentre as respostas das threads
     maior = float('-inf')
     menor = float('inf')
     for thread, resps in threads:
